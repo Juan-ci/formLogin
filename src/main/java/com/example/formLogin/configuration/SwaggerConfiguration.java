@@ -13,10 +13,10 @@ import org.springframework.context.annotation.Configuration;
         info = @Info(
                 title = "API Configuration",
                 description = "API demo",
-                version = "1.0.0"
+                version = "${api.swagger.version}"
         ),
         servers = {
-                @Server( url = "http://localhost:8080")
+                @Server( url = "${api.swagger.url}")
         },
         security = @SecurityRequirement(name = "bearerAuth")
 )

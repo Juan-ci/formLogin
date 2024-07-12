@@ -37,7 +37,6 @@ public class WebSecurityConfiguration {
     @Bean
     public WebSecurityCustomizer webSecurityCustomizer() {
         return web -> web.ignoring().requestMatchers(
-          "/v3/**",
           "/webjars/**"
         );
     }
@@ -51,12 +50,13 @@ public class WebSecurityConfiguration {
                 .authorizeHttpRequests(matcher -> matcher
                         .requestMatchers(
                                 "/api/**",
-                                "/v3/**",
-                                "/custom/**",
                                 "/configuration/ui",
                                 "/swagger-resources/**",
                                 "/configuration/security",
-                                "/webjars/**"
+                                "/webjars/**",
+                                "/login-swagger",
+                                "**/swagger-ui/**",
+                                "**/favicon.ico"
                         ).permitAll()
                 )
                 .authorizeHttpRequests(matcher ->
